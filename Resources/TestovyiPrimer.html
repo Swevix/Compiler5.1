@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Тестовый пример</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        ol {
+            margin-left: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тестовый пример</h1>
+
+    <p>Ниже приведены примеры комментариев, которые должен распознавать анализатор:</p>
+
+    <ol>
+        <li>
+            <strong>Однострочный комментарий:</strong>
+            <pre><code># I am single line comment</code></pre>
+        </li>
+        <li>
+            <strong>Многострочный комментарий:</strong>
+            <pre><code>""" Multi-line comment used
+print("Python Comments") """</code></pre>
+        </li>
+    </ol>
+
+    <p>В первом примере сканер должен вернуть лексему типа <code>SingleLineComment</code>, во втором — лексему типа <code>MultiLineComment</code> с правильным захватом всего блока.</p>
+</body>
+</html>

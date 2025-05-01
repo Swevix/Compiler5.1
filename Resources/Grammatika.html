@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Разработка грамматики</title>
+</head>
+<body>
+    <h1>Разработка грамматики</h1>
+
+    <p>Определим грамматику комментариев языка Python <em>G[&lt;C&gt;]</em> в нотации Хомского с продукциями <strong>P</strong>:</p>
+    <pre>
+1.  &lt;C&gt;       → &lt;SHARP&gt;
+2.  &lt;C&gt;       → &lt;FOSQ&gt;
+3.  &lt;C&gt;       → &lt;FODQ&gt;
+4.  &lt;SHARP&gt;   → '#' &lt;SLC&gt; &lt;newline&gt;
+5.  &lt;SLC&gt;     → &lt;symbol&gt; &lt;SLC&gt; | ε
+6.  &lt;FOSQ&gt;    → ''' &lt;BODY_SQ&gt;
+7.  &lt;BODY_SQ&gt; → &lt;symbol&gt; &lt;BODY_SQ&gt; | '''
+8.  &lt;FODQ&gt;    → """ &lt;BODY_DQ&gt;
+9.  &lt;BODY_DQ&gt; → &lt;symbol&gt; &lt;BODY_DQ&gt; | """
+  </pre>
+
+    <p>Где:</p>
+    <ul>
+        <li><code>&lt;C&gt;</code> — стартовый нетерминал (комментарий любой формы).</li>
+        <li><code>&lt;SHARP&gt;</code> — однострочный комментарий <code># …</code>.</li>
+        <li><code>&lt;SLC&gt;</code> — тело однострочного комментария (любые символы до конца строки).</li>
+        <li><code>&lt;FOSQ&gt;</code> — открывающий тройной одинарный апостроф <code>'''</code>.</li>
+        <li><code>&lt;BODY_SQ&gt;</code> — тело многострочного комментария в одинарных кавычках.</li>
+        <li><code>&lt;FODQ&gt;</code> — открывающий тройной двойной кавычки <code>"""</code>.</li>
+        <li><code>&lt;BODY_DQ&gt;</code> — тело многострочного комментария в двойных кавычках.</li>
+        <li><code>&lt;symbol&gt;</code> — любой символ, кроме одиночной кавычки, двойной кавычки и перевода строки.</li>
+        <li><code>ε</code> — пустая строка (конец однострочного комментария).</li>
+    </ul>
+
+    <p>Следуя введённому формальному определению грамматики, представим <em>G[&lt;C&gt;]</em> её составляющими:</p>
+    <ul>
+        <li><strong>Z</strong> (начальный символ): <code>&lt;C&gt;</code></li>
+        <li><strong>V<sub>T</sub></strong> (терминалы): <code>{ '#', ''' , """, &lt;symbol&gt;, &lt;newline&gt; }</code></li>
+        <li><strong>V<sub>N</sub></strong> (нетерминалы): <code>{ &lt;C&gt;, &lt;SHARP&gt;, &lt;SLC&gt;, &lt;FOSQ&gt;, &lt;BODY_SQ&gt;, &lt;FODQ&gt;, &lt;BODY_DQ&gt; }</code></li>
+    </ul>
+</body>
+</html>

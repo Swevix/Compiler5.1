@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Справка</title>
+    <style>
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+
+        .lang-ru, .lang-en {
+            display: none;
+        }
+
+            .lang-ru.active, .lang-en.active {
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Справка</h1>
+        <button class="button" onclick="toggleLanguage()">Переключить на английский</button>
+
+        <div class="lang-ru active">
+            <h2>Основные функции</h2>
+            <ul>
+                <li><strong>Создать:</strong> Создает новый файл или проект.</li>
+                <li><strong>Открыть:</strong> Открывает существующий файл или проект из файловой системы.</li>
+                <li><strong>Сохранить:</strong> Сохраняет текущий файл.</li>
+                <li><strong>Сохранить как:</strong> Сохраняет текущий файл с новым именем или в новом месте.</li>
+                <li><strong>Выход:</strong> Закрывает IDE.</li>
+                <li><strong>Отменить:</strong> Отменяет последнее действие.</li>
+                <li><strong>Повторить:</strong> Повторяет отмененное действие.</li>
+                <li><strong>Вырезать:</strong> Удаляет выделенный текст или элемент и помещает его в буфер обмена.</li>
+                <li><strong>Копировать:</strong> Копирует выделенный текст или элемент в буфер обмена.</li>
+                <li><strong>Вставить:</strong> Вставляет содержимое буфера обмена в текущее место курсора.</li>
+                <li><strong>Удалить:</strong> Удаляет выделенный текст или элемент без помещения в буфер обмена.</li>
+                <li><strong>Выделить все:</strong> Выделяет весь текст или элемент в текущем окне или документе.</li>
+            </ul>
+        </div>
+
+        <div class="lang-en">
+            <h2>Main Features</h2>
+            <ul>
+                <li><strong>Create:</strong> Creates a new file or project.</li>
+                <li><strong>Open:</strong> Opens an existing file or project from the file system.</li>
+                <li><strong>Save:</strong> Saves the current file.</li>
+                <li><strong>Save As:</strong> Saves the current file with a new name or in a new location.</li>
+                <li><strong>Exit:</strong> Closes the IDE.</li>
+                <li><strong>Undo:</strong> Reverts the last action.</li>
+                <li><strong>Redo:</strong> Repeats the undone action.</li>
+                <li><strong>Cut:</strong> Removes the selected text or element and places it in the clipboard.</li>
+                <li><strong>Copy:</strong> Copies the selected text or element to the clipboard.</li>
+                <li><strong>Paste:</strong> Pastes the contents of the clipboard at the current cursor position.</li>
+                <li><strong>Delete:</strong> Deletes the selected text or element without placing it in the clipboard.</li>
+                <li><strong>Select All:</strong> Selects all text or elements in the current window or document.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const ruSection = document.querySelector('.lang-ru');
+            const enSection = document.querySelector('.lang-en');
+            const button = document.querySelector('.button');
+            const title = document.getElementById('title');
+
+            if (ruSection.classList.contains('active')) {
+                ruSection.classList.remove('active');
+                enSection.classList.add('active');
+                button.textContent = 'Switch to Russian';
+                title.textContent = 'Help';
+            } else {
+                enSection.classList.remove('active');
+                ruSection.classList.add('active');
+                button.textContent = 'Переключить на английский';
+                title.textContent = 'Справка';
+            }
+        }
+    </script>
+</body>
+</html>

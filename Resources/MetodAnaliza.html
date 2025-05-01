@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Метод анализа</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; line-height: 1.4; }
+    h1 { margin-top: 0; }
+    figure { margin: 1.5em 0; text-align: center; }
+    figcaption { font-style: italic; margin-top: .5em; }
+    img { max-width: 100%; height: auto; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Метод анализа</h1>
+
+  <p>Ниже приведены:
+
+  <ol>
+    <li>Граф грамматики <em>G[&lt;C&gt;]</em> в нотации Хомского;</li>
+    <li>Детерминированная диаграмма состояний сканера.</li>
+  </ol>
+  </p>
+
+  <figure>
+    <img src="G_C.png" alt="Граф G[<C>]">
+    <figcaption>Рисунок 1 – Граф <em>G[&lt;C&gt;]</em></figcaption>
+  </figure>
+
+  <figure>
+    <img src="ScannerDiagram.png" alt="Диаграмма состояний сканера">
+    <figcaption>Рисунок 2 – Диаграмма состояний сканера</figcaption>
+  </figure>
+
+  <p>На Рисунке 1 показан автомат, задающий грамматику комментариев языка Python в нотации Хомского, а на Рисунке 2 – конечный автомат (DFA), реализующий сканер, который по входному потоку символов различает однострочные, многострочные комментарии, новую строку и прочие символы.</p>
+</body>
+</html>
