@@ -58,6 +58,8 @@
             оПрограммеToolStripMenuItem = new ToolStripMenuItem();
             menuStrip2 = new MenuStrip();
             нейтрализацияОшибокToolStripMenuItem = new ToolStripMenuItem();
+            buttonAnalyzeExpr = new ToolStripMenuItem();
+            рВToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             toolStripButtonAdd = new ToolStripButton();
             toolStripButtonOpen = new ToolStripButton();
@@ -93,10 +95,20 @@
             dataGridViewQuads = new DataGridView();
             dataGridViewExprErrors = new DataGridView();
             dataGridViewExprTokens = new DataGridView();
+            tabPageCustom = new TabPage();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            dataGridViewMyErrors = new DataGridView();
+            colErrText = new DataGridViewTextBoxColumn();
+            colExpected = new DataGridViewTextBoxColumn();
+            colErrPos = new DataGridViewTextBoxColumn();
+            dataGridViewMyTokens = new DataGridView();
+            colCode = new DataGridViewTextBoxColumn();
+            colType = new DataGridViewTextBoxColumn();
+            colLexeme = new DataGridViewTextBoxColumn();
+            colPosition = new DataGridViewTextBoxColumn();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            buttonAnalyzeExpr = new ToolStripMenuItem();
             menuStrip2.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NiceWindow).BeginInit();
@@ -117,6 +129,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewQuads).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExprErrors).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExprTokens).BeginInit();
+            tabPageCustom.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMyErrors).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMyTokens).BeginInit();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -304,7 +320,7 @@
             // 
             menuStrip2.BackColor = Color.RosyBrown;
             menuStrip2.ImageScalingSize = new Size(20, 20);
-            menuStrip2.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, правкаToolStripMenuItem, текстToolStripMenuItem, пускToolStripMenuItem, справкаToolStripMenuItem, нейтрализацияОшибокToolStripMenuItem, buttonAnalyzeExpr });
+            menuStrip2.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, правкаToolStripMenuItem, текстToolStripMenuItem, пускToolStripMenuItem, справкаToolStripMenuItem, нейтрализацияОшибокToolStripMenuItem, buttonAnalyzeExpr, рВToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Size = new Size(706, 24);
@@ -317,6 +333,19 @@
             нейтрализацияОшибокToolStripMenuItem.Size = new Size(152, 20);
             нейтрализацияОшибокToolStripMenuItem.Text = "Нейтрализация ошибок";
             нейтрализацияОшибокToolStripMenuItem.Click += нейтрализацияОшибокToolStripMenuItem_Click;
+            // 
+            // buttonAnalyzeExpr
+            // 
+            buttonAnalyzeExpr.Name = "buttonAnalyzeExpr";
+            buttonAnalyzeExpr.Size = new Size(141, 20);
+            buttonAnalyzeExpr.Text = "Разобрать выражение";
+            // 
+            // рВToolStripMenuItem
+            // 
+            рВToolStripMenuItem.Name = "рВToolStripMenuItem";
+            рВToolStripMenuItem.Size = new Size(33, 20);
+            рВToolStripMenuItem.Text = "РВ";
+            рВToolStripMenuItem.Click += pBToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -525,6 +554,7 @@
             // 
             tabControlModes.Controls.Add(tabPagePython);
             tabControlModes.Controls.Add(tabPageExpr);
+            tabControlModes.Controls.Add(tabPageCustom);
             tabControlModes.Dock = DockStyle.Fill;
             tabControlModes.Location = new Point(0, 0);
             tabControlModes.Name = "tabControlModes";
@@ -655,6 +685,7 @@
             // 
             // dataGridViewQuads
             // 
+            dataGridViewQuads.BackgroundColor = Color.RosyBrown;
             dataGridViewQuads.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableLayoutPanel2.SetColumnSpan(dataGridViewQuads, 2);
             dataGridViewQuads.Dock = DockStyle.Fill;
@@ -665,6 +696,7 @@
             // 
             // dataGridViewExprErrors
             // 
+            dataGridViewExprErrors.BackgroundColor = Color.RosyBrown;
             dataGridViewExprErrors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewExprErrors.Dock = DockStyle.Fill;
             dataGridViewExprErrors.Location = new Point(337, 3);
@@ -674,12 +706,97 @@
             // 
             // dataGridViewExprTokens
             // 
+            dataGridViewExprTokens.BackgroundColor = Color.RosyBrown;
             dataGridViewExprTokens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewExprTokens.Dock = DockStyle.Fill;
             dataGridViewExprTokens.Location = new Point(3, 3);
             dataGridViewExprTokens.Name = "dataGridViewExprTokens";
             dataGridViewExprTokens.Size = new Size(328, 74);
             dataGridViewExprTokens.TabIndex = 1;
+            // 
+            // tabPageCustom
+            // 
+            tabPageCustom.BackColor = Color.RosyBrown;
+            tabPageCustom.Controls.Add(tableLayoutPanel3);
+            tabPageCustom.Location = new Point(4, 24);
+            tabPageCustom.Name = "tabPageCustom";
+            tabPageCustom.Size = new Size(674, 167);
+            tabPageCustom.TabIndex = 2;
+            tabPageCustom.Text = "Токены";
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(dataGridViewMyErrors, 1, 0);
+            tableLayoutPanel3.Controls.Add(dataGridViewMyTokens, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new Size(674, 167);
+            tableLayoutPanel3.TabIndex = 2;
+            // 
+            // dataGridViewMyErrors
+            // 
+            dataGridViewMyErrors.BackgroundColor = Color.RosyBrown;
+            dataGridViewMyErrors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMyErrors.Columns.AddRange(new DataGridViewColumn[] { colErrText, colExpected, colErrPos });
+            dataGridViewMyErrors.Dock = DockStyle.Fill;
+            dataGridViewMyErrors.Location = new Point(340, 3);
+            dataGridViewMyErrors.Name = "dataGridViewMyErrors";
+            dataGridViewMyErrors.Size = new Size(331, 161);
+            dataGridViewMyErrors.TabIndex = 3;
+            // 
+            // colErrText
+            // 
+            colErrText.HeaderText = "Ошибка";
+            colErrText.Name = "colErrText";
+            // 
+            // colExpected
+            // 
+            colExpected.HeaderText = "Ожидалось";
+            colExpected.Name = "colExpected";
+            // 
+            // colErrPos
+            // 
+            colErrPos.HeaderText = "Позиция";
+            colErrPos.Name = "colErrPos";
+            // 
+            // dataGridViewMyTokens
+            // 
+            dataGridViewMyTokens.BackgroundColor = Color.RosyBrown;
+            dataGridViewMyTokens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMyTokens.Columns.AddRange(new DataGridViewColumn[] { colCode, colType, colLexeme, colPosition });
+            dataGridViewMyTokens.Dock = DockStyle.Fill;
+            dataGridViewMyTokens.Location = new Point(3, 3);
+            dataGridViewMyTokens.Name = "dataGridViewMyTokens";
+            dataGridViewMyTokens.Size = new Size(331, 161);
+            dataGridViewMyTokens.TabIndex = 1;
+            dataGridViewMyTokens.CellContentClick += dataGridView3_CellContentClick;
+            // 
+            // colCode
+            // 
+            colCode.HeaderText = "Код";
+            colCode.Name = "colCode";
+            // 
+            // colType
+            // 
+            colType.HeaderText = "Тип";
+            colType.Name = "colType";
+            // 
+            // colLexeme
+            // 
+            colLexeme.HeaderText = "Лексема";
+            colLexeme.Name = "colLexeme";
+            // 
+            // colPosition
+            // 
+            colPosition.HeaderText = "Позиция";
+            colPosition.Name = "colPosition";
             // 
             // statusStrip1
             // 
@@ -696,12 +813,6 @@
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(118, 17);
             toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // buttonAnalyzeExpr
-            // 
-            buttonAnalyzeExpr.Name = "buttonAnalyzeExpr";
-            buttonAnalyzeExpr.Size = new Size(141, 20);
-            buttonAnalyzeExpr.Text = "Разобрать выражение";
             // 
             // Compiler
             // 
@@ -737,6 +848,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewQuads).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExprErrors).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExprTokens).EndInit();
+            tabPageCustom.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMyErrors).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMyTokens).EndInit();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);
@@ -812,5 +927,17 @@
         private DataGridView dataGridViewExprErrors;
         private DataGridView dataGridViewExprTokens;
         private ToolStripMenuItem buttonAnalyzeExpr;
+        private TabPage tabPageCustom;
+        private TableLayoutPanel tableLayoutPanel3;
+        private DataGridView dataGridViewMyTokens;
+        private DataGridViewTextBoxColumn colCode;
+        private DataGridViewTextBoxColumn colType;
+        private DataGridViewTextBoxColumn colLexeme;
+        private DataGridViewTextBoxColumn colPosition;
+        private ToolStripMenuItem рВToolStripMenuItem;
+        private DataGridView dataGridViewMyErrors;
+        private DataGridViewTextBoxColumn colErrText;
+        private DataGridViewTextBoxColumn colExpected;
+        private DataGridViewTextBoxColumn colErrPos;
     }
 }

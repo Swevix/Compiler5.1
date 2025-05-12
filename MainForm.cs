@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using lab1_compiler.Bar;                   
 using lab1_compiler.ExpressionCompiler;
 
+
+
 namespace lab1_compiler
 {
     public partial class Compiler : Form
@@ -27,13 +29,17 @@ namespace lab1_compiler
         public Compiler()
         {
             InitializeComponent();
-            InitializeExprTables();                     
-            buttonAnalyzeExpr.Click += ButtonAnalyzeExpr_Click;  
+            InitializeExprTables();
+            buttonAnalyzeExpr.Click += ButtonAnalyzeExpr_Click;
             InitializeFontSizeComboBox();
+
+
+
             this.FormClosing += Compiler_FormClosing;
             _fileHandler = new FileManager(this);
             _corManager = new CorManager(richTextBox1);
             _refManager = new RefManager(_helpPath, _aboutPath);
+
 
             this.MinimumSize = new Size(450, 300);
 
@@ -567,5 +573,47 @@ namespace lab1_compiler
             }
         }
 
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void pBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 1) Анализируем всё
+            var result = AdditionalTokenAnalyzer.AnalyzeAll(richTextBox1.Text);
+
+            // 2) Заполняем таблицу токенов
+            dataGridViewMyTokens.Rows.Clear();
+            foreach (var t in result.Tokens)
+            {
+                string code = t.Type switch
+                {
+                    "HEX3" => "6",
+                    "OGRN13" => "8",
+                    "NumStart1" => "7",
+                    _ => ""
+                };
+                dataGridViewMyTokens.Rows.Add(
+                    code, t.Type, t.Value, $"Строка {t.Line}"
+                );
+            }
+
+            // 3) Заполняем таблицу ошибок
+            dataGridViewMyErrors.Rows.Clear();
+            foreach (var err in result.Errors)
+            {
+                // Собираем «Позиция» в виде «Строка X, Колонка Y»
+                string pos = $"Строка {err.Line}, позиция {err.Column}";
+                dataGridViewMyErrors.Rows.Add(
+                    err.Lexeme,
+                    err.Expected,
+                    pos
+                );
+            }
+        }
+
     }
 }
+    
