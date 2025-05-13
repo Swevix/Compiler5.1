@@ -130,8 +130,7 @@ SLC → symbol SLC | newline
 ![Без заголовка](https://github.com/user-attachments/assets/d4b38990-1575-4fb9-aecc-e49480f1e53f)
 
 
-### Недетерминированный граф конечного автомата комментариев на Python, аналогичный работе на токенах.
-![image](https://github.com/user-attachments/assets/9328880d-0e26-4d1a-ad10-71e9ca25bf92)
+
 
 ### Пример работы парсера
 ![2025-05-13 17 22 12](https://github.com/user-attachments/assets/2880aec4-65ac-4c15-bc51-4986d20a3a26)
