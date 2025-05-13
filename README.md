@@ -172,15 +172,18 @@ SLC → symbol SLC | newline
 2) Реализовать алгоритм записи выражений в форме тетрад.
 ---
 ### Интерфейс
-![image](https://github.com/user-attachments/assets/16f8972c-cae2-4e8a-8506-18ce73680709)
+![439660073-16f8972c-cae2-4e8a-8506-18ce73680709](https://github.com/user-attachments/assets/b0665acb-4df5-4479-9841-9ca794245e30)
+
 
 ### Пример работы
 
-![image](https://github.com/user-attachments/assets/07f64488-1a4a-42f7-a459-b325db5c4ef2)
+![439660271-07f64488-1a4a-42f7-a459-b325db5c4ef2](https://github.com/user-attachments/assets/d458e8d8-91db-4a52-b985-8416f653c7e6)
+
 
 ### Пример ошибки
 
-![image](https://github.com/user-attachments/assets/f26c9778-ae32-465f-902f-fae870908ed2)
+![439660576-f26c9778-ae32-465f-902f-fae870908ed2](https://github.com/user-attachments/assets/6603e52c-9882-46df-8ebd-62c6f0ccac57)
+
 
 # Лабораторная работа 6. Реализация алгоритма поиска подстрок с помощью регулярных выражений.
 - Цель работы: Реализовать алгоритм поиска в тексте подстрок, соответствующих заданным регулярным выражениям.
