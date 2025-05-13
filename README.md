@@ -138,15 +138,17 @@ SLC → symbol SLC | newline
 - Задание: Реализовать алгоритм синтаксического анализа с нейтрализацией ошибок (метод Айронса).
 ---
 
-![image](https://github.com/user-attachments/assets/953edfad-bdc1-42c9-941e-d8309ee91ed6)
+
+![2025-05-13 17 20 24](https://github.com/user-attachments/assets/d1a80919-4903-48ae-8fe1-aa6e3e613bfb)
 
 
 ### Нажатие кнопки нейтрализация ошибок
 
-![image](https://github.com/user-attachments/assets/5b1cbbd3-4112-4a18-a9d3-af8c6e14ca5f)
+![2025-05-13 17 21 48](https://github.com/user-attachments/assets/d1107a3e-bbe5-44f6-bbba-8dd5eb400f93)
 
 
-![image](https://github.com/user-attachments/assets/ff97c1c0-21b1-4fc9-aee6-c46ead9f4c33)
+![2025-05-13 17 22 12](https://github.com/user-attachments/assets/85a9834d-2050-41d1-a1f7-a2ea3c33b2d7)
+
 
 ---
 # Лабораторная работа 5. Включение семантики в анализатор. Создание внутренней формы представления программы.
