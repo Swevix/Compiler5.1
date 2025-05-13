@@ -51,10 +51,13 @@ print("Python Comments") """
 - Встроить сканер в ранее разработанный интерфейс текстового редактора. Учесть, что текст для разбора может состоять из множества строк.
 
 - рис.1 Диаграмма сканера
- ![image](https://github.com/user-attachments/assets/519729c9-9edf-4e31-a6d8-5682d9636037)
+  
+-  ![Без заголовка](https://github.com/user-attachments/assets/7c11cf11-de91-4206-b08f-d79719ebb739)
+
 
 - рис.2 Работа сканера
-- ![image](https://github.com/user-attachments/assets/913f9c79-ae87-4bb8-a9de-ba86d6ae8807)
+- ![2025-05-13 17 22 12](https://github.com/user-attachments/assets/148da050-40f3-4a5f-bf7e-8a399e7f0682)
+
 
 ---
 
@@ -123,14 +126,16 @@ SLC → symbol SLC | newline
 
 
 ### Граф конечного автомата
-![image](https://github.com/user-attachments/assets/7a91d8d3-f4c2-4747-bbde-39e5e991512f)
+
+![Без заголовка](https://github.com/user-attachments/assets/d4b38990-1575-4fb9-aecc-e49480f1e53f)
 
 
 ### Недетерминированный граф конечного автомата комментариев на Python, аналогичный работе на токенах.
 ![image](https://github.com/user-attachments/assets/9328880d-0e26-4d1a-ad10-71e9ca25bf92)
 
 ### Пример работы парсера
-![image](https://github.com/user-attachments/assets/cbb695af-1723-4108-beaf-68e20a30ea9b)
+![2025-05-13 17 22 12](https://github.com/user-attachments/assets/2880aec4-65ac-4c15-bc51-4986d20a3a26)
+
 
 ---
 # Лабораторная работа 4. Нейтрализация ошибок (метод Айронса).
