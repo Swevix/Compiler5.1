@@ -614,6 +614,37 @@ namespace lab1_compiler
             }
         }
 
+        private void заданиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvParseSteps.Rows.Clear();
+            string input = richTextBox1.Text;
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                MessageBox.Show("Введите выражение для разбора.", "Внимание",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                var parser = new Parser(input);
+                parser.Parse();
+
+                int idx = 1;
+                foreach (var step in parser.Steps)
+                {
+                    var parts = step.Split(new[] { '→' }, 2);
+                    string method = parts[0].Trim();
+                    string desc = parts.Length > 1 ? parts[1].Trim() : "";
+                    dgvParseSteps.Rows.Add(idx++, method, desc);
+                }
+            }
+            catch (Exception ex)
+            {
+                dgvParseSteps.Rows.Add(1, "Error", ex.Message);
+            }
+        }
     }
 }
     
