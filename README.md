@@ -218,5 +218,5 @@ VALUE – числовая константа Ц{Ц}, VARIABLE – переме�
 ![image](https://github.com/user-attachments/assets/87f50c61-7477-45a4-b48d-8a8369bf50bd)
 ![image](https://github.com/user-attachments/assets/50288fa4-fbf1-41f9-9c26-1bee849d756c)
 ![image](https://github.com/user-attachments/assets/1d0f23ed-312d-42b6-a581-5506a3c20e4c)
-![image](https://github.com/user-attachments/assets/5f9cce05-9078-4ef2-a99b-a45754f42b8d)
+
 
